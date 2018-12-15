@@ -32,7 +32,7 @@ def strip_tags(html):
 def preprocess(text):
     if (type(text) == float):
         print(text);
-        text = 'тест';
+        text = 'test';
     text = strip_tags(text);
     
     result = []
@@ -71,6 +71,16 @@ def big_func(text):
         l.append(d)
     print('f', l)
 
-    return l;
+    t = [];
+
+    for i in l[0]['topic']:
+        print(i);
+        t.append({
+            'name': i[0],
+            'number': i[1] * 100,
+        })
+
+    print(t);
+    return t;
 
 # big_func('How a Pentagon deal became an identity crisis for Google')
