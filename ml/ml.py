@@ -67,7 +67,7 @@ def big_func(text):
         # print("Score: {}\t Topic: {}".format(score, lda_model.print_topic(index, 5)))
         d = {}
         d['score'] = score * 100;
-        d['topic'] = lda_model.print_topic(index, 5);
+        d['topic'] = lda_model.show_topic(index, 5);
         l.append(d)
     print('f', l)
 
