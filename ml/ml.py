@@ -60,7 +60,7 @@ def big_func(text):
     lda_model = gensim.models.LdaMulticore.load('model')
 
     unseen_document = 'How a Pentagon deal became an identity crisis for Google'
-    bow_vector = dictionary.doc2bow(preprocess(unseen_document))
+    bow_vector = dictionary.doc2bow(preprocess(text))
 
     l = []
     for index, score in sorted(lda_model[bow_vector], key=lambda tup: -1*tup[1]):
