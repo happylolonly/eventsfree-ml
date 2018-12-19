@@ -1,1 +1,1 @@
-web: cd fastText-master && pip install && cd ../ml && python server.py
+web: cd fastText-master && python setup.py install && cd ../ml && python server.py
