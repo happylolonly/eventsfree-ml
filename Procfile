@@ -1,1 +1,1 @@
-web: cd ml && python server.py
+web: pip install fastText

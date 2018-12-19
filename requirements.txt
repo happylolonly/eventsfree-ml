@@ -3,4 +3,3 @@ Cython
 flask
 gensim
 nltk
-fastText
