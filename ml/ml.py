@@ -84,3 +84,24 @@ def big_func(text):
     return t;
 
 # big_func('How a Pentagon deal became an identity crisis for Google')
+import fastText
+
+def predict(text):
+
+    model2 = fastText.load_model('ft_quantized.model')
+
+    t = preprocess(text)
+    # print(t)
+
+    labels, probs = model2.predict([" ".join(t)])
+    # labels, probs = model2.predict(test[FIELD].tolist())
+    labels = [ll[0].replace('__label__', '') for ll in labels]
+    print(labels, probs)
+    
+
+    return {'labels': labels, 'probs': probs[0][0]}
+
+    # print(classification_report(test['tag'].values, labels))
+
+
+# predict('"Открытый Урок"! Фитнес-центр "Lifestyle Fitness & GYM" (г.Минск, пр-т.Машерова, 76а) представляет: серия бесплатных фитнес тренировок, направленных на популяризацию спорта в целом, спортивного образа жизни и даже спортивного мышления наших и не наших клиентов). 19.12.2017г, вторник, 19:30 Урок 1: "Тай Бо" Тренер: Кристина Санько-Вертоградова Вход свободный! Предварительная запись обязательно! +375 (44) 7-555-000, +375 (29) 500-10-55 info@fitness-club.by #ямамакрасивая #свояатмосфера #здесь')

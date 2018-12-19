@@ -47,6 +47,29 @@ def parse_request():
     # return ml.big_func('How a Pentagon deal became an identity crisis for Google')
     # need posted data here
 
+@app.route('/tags', methods=['GET', 'POST'])
+def parse_request2():
+    # if not request.json:
+    #     abort(400)
+    o = request.get_json()
+    print(o)
+    # print(type(o))
+    # d = json.loads(o)
+    l = ml.predict(o['text']);
+    print(l)
+
+    d = l;
+
+    message = {
+        'status': 200,
+        'message': 'OK',
+        'scores': d
+    }
+    resp = jsonify(message)
+    resp.status_code = 200
+    print(resp)
+    return resp
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
