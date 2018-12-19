@@ -1,4 +1,5 @@
 flask
 gensim
 nltk
+cython
 fastText
