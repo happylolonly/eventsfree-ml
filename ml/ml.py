@@ -88,15 +88,17 @@ import fastText
 
 def predict(text):
 
-    model2 = fastText.load_model('ft_quantized.model')
+    model2 = fastText.load_model('ft_quantized.3.model')
 
     t = preprocess(text)
     # print(t)
 
-    labels, probs = model2.predict([" ".join(t)])
+    print(" ".join(t))
+
+    labels, probs = model2.predict([" ".join(t)], k=5)
     # labels, probs = model2.predict(test[FIELD].tolist())
-    labels = [ll[0].replace('__label__', '') for ll in labels]
     print(labels, probs)
+    # labels = [ll.replace('__label__', '') for ll in labels]
     
 
     return {'labels': labels, 'probs': probs[0][0]}
