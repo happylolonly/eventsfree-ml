@@ -1,5 +1,6 @@
+cython
+Cython
 flask
 gensim
 nltk
-Cython
 fastText
