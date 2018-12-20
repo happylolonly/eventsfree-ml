@@ -88,7 +88,7 @@ import fastText
 
 def predict(text):
 
-    model2 = fastText.load_model('ft_quantized.5.model')
+    model2 = fastText.load_model('ft_quantized.6.model')
 
     t = preprocess(text)
     # print(t)
