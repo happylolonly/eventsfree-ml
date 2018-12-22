@@ -21,7 +21,7 @@ def predict(text):
     for i in l[0]['topic']:
         print(i)
         data.append({
-            'topic': i[0],
+            'label': i[0],
             'probability': round(i[1] * 100 / 100, 3) # какой то костыль с делением, по другому хз, ошибка float32
         })
 

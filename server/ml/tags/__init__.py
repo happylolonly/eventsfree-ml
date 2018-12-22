@@ -11,7 +11,7 @@ def predict(text):
 
     for i, label in enumerate(labels[0]):
         tags.append({
-            'tag': label.replace('__label__', ''),
+            'label': label.replace('__label__', ''),
             'probability': round(probs[0][i], 3)
         })
 
