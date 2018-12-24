@@ -1,6 +1,6 @@
 import fastText
 
-model = fastText.load_model('ml/tags/model/ft_quantized.model')
+model = fastText.load_model('ml/tags/model/tags_model')
 
 def predict(text):
     labels, probs = model.predict([text], k=5)
