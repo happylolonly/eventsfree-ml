@@ -1,8 +1,13 @@
 import fastText
 
-model = fastText.load_model('ml/tags/model/tags_model')
 
 def predict(text):
+
+    try:
+        model = fastText.load_model('ml/tags/model/tags_model_new') # fix
+    except ValueError:
+        model = fastText.load_model('ml/tags/model/tags_model') # fix
+    
     labels, probs = model.predict([text], k=5)
 
     print(labels, probs)
@@ -16,3 +21,9 @@ def predict(text):
         })
 
     return tags
+
+
+# fast code for result
+# def build_model() {
+    
+# }
