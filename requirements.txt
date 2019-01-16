@@ -5,6 +5,6 @@ pymongo
 nbformat
 nbconvert
 jupyter_client
-ipython
 notebook
+pandas
 git+https://github.com/facebookresearch/fastText.git
