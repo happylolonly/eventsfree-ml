@@ -1,12 +1,16 @@
 import fastText
+import dropbox_helper
+
+try:
+    dropbox_helper.load('./ml/tags/model/tags_model_new', '/tags_model_new')
+    model = fastText.load_model('ml/tags/model/tags_model_new')
+    print('loaded last tags model')
+except ValueError:
+    model = fastText.load_model('ml/tags/model/tags_model')
+    print('loaded default tags model')
 
 
 def predict(text):
-
-    try:
-        model = fastText.load_model('ml/tags/model/tags_model_new') # fix
-    except ValueError:
-        model = fastText.load_model('ml/tags/model/tags_model') # fix
     
     labels, probs = model.predict([text], k=5)
 

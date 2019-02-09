@@ -2,7 +2,7 @@ from flask import Flask, abort, request, jsonify
 
 import os
 import ml
-
+import dropbox_helper
 
 app = Flask(__name__)
 
@@ -46,6 +46,23 @@ def train():
 
     print('train')
     ep.preprocess(nb, {'metadata': {'path': '../notebooks/tags'}})
+    print('finiched')
+
+    import os
+
+    fName = './ml/tags/model/tags_model_new'
+
+    if os.path.exists(fName):
+        with open(fName, 'rb') as f:
+            try:
+                dropbox_helper.upload(f.read(), '/tags_model_new')
+                print('success')
+            except error:
+                # handle error
+                print(error)
+    else:
+        print('finiched23223')
+
     return ''
 
 
